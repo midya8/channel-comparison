@@ -63,7 +63,7 @@ python -m channellab verify report.json
 python -m pip install .
 channellab demo
 python -m unittest discover -s tests -v
-node --test --test-concurrency=1 tests/test_engine.cjs tests/test_atlas.cjs tests/test_browser.cjs
+node --test --test-concurrency=1 tests/test_chrome_support.cjs tests/test_engine.cjs tests/test_atlas.cjs tests/test_browser.cjs
 python tools/check_installed.py
 # Optional external numerical reference:
 python tools/check_highs.py
@@ -86,6 +86,8 @@ The chart connects exact knots using floating-point pixel coordinates only. Infe
 
 ## Verification
 
+The Node command also tests debugger and download readiness: bounded startup retries, browser exit, partial-download markers, byte counts and timeout failures. These transport checks do not retry mathematical assertions.
+
 - 30 Python tests, including 372 separately altered non-input primitive leaves rejected in the default report, unknown fields/type confusion, signal/state relabelling, full-support prior changes, null signals, strict CLI errors and a valid alternative feasible kernel.
 - 710 complete Python/checker/BigInt report comparisons: 13 controls, all 625 ordered pairs of denominator-four binary-output channels, and 72 seeded rectangular pairs over all nine 1..3 by 1..3 signal-count combinations. Reports include 6,994 task policies, 627 feasible directional kernels and 793 strict directional counterexamples. This is a declared small finite grid, not a universal empirical benchmark.
 - The optional SciPy 1.15.3 HiGHS reference executes 1,420 directional feasibility solves. Its 627 feasible cases match the exact relation. Worst equality residual below 2.8e-16, against a 1e-8 tolerance. SciPy is optional reference evidence, never a production dependency.
@@ -96,6 +98,6 @@ The chart connects exact knots using floating-point pixel coordinates only. Infe
 
 ## Scope and limits
 
-Exactly two states. One to three signals per channel, one to three actions. One full-support prior. Exact non-boolean integer/pair input, raw components<=1,000,000; normalized denominator LCM<=1,000,000; payoff magnitude<=100. Strict JSON input 64 KiB, report verification 8 MiB. Enumeration bounds do not bound all arithmetic bit complexity, output size, wall time or memory. Full details in METHOD.
+Exactly two states. One to three signals per channel, one to three actions. The information-order comparison requires a full-support prior; the fixed-task atlas includes both certain-state endpoints. Exact non-boolean integer/pair input, raw components<=1,000,000; normalized denominator LCM<=1,000,000; payoff magnitude<=100. Strict JSON input 64 KiB, report verification 8 MiB. Enumeration bounds do not bound all arithmetic bit complexity, output size, wall time or memory. Full details in METHOD.
 
 No channel learning, sequential design, real sensor validation, privacy guarantee, finance, safety promise, multi-state scalar-order shortcut, scalability claim or new Blackwell algorithm. Shared mathematical assumptions remain shared failure modes in cross-language/reference agreement. Exact arithmetic does not make the supplied model true. MIT.
