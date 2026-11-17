@@ -1,10 +1,10 @@
-# ChannelLab
+# Channel comparison
 
-ChannelLab compares two supplied binary experiments. It returns a state-independent randomized signal transformation when one channel can simulate the other, or a two-action decision problem with a strict value gap when it cannot. A separate prior atlas compares one fixed task over the whole prior interval.
+Channel comparison compares two supplied binary experiments. It returns a state-independent randomized signal transformation when one channel can simulate the other, or a two-action decision problem with a strict value gap when it cannot. A separate prior atlas compares one fixed task over the whole prior interval.
 
 Python 3.10+, with no runtime dependencies, and a separate BigInt browser inspector. The implementation uses classical Blackwell comparison; it does not learn channels, validate real sensors or introduce a new theorem.
 
-[Open the live inspector](https://midya8.github.io/channellab/).
+[Open the live inspector](https://midya8.github.io/channel-comparison/).
 
 ## Choose a comparison
 
@@ -76,7 +76,7 @@ The default is one of 13 developed controls. Relabelled and split signals can be
 
 ## The finite proof objects
 
-For two states and any full-support prior, A dominates B exactly when its posterior distribution is larger in convex order. The upper-hinge call value is C(t)=E[max(posterior-t,0)]. ChannelLab checks all supported posterior knots plus 0 and 1. Their difference is affine between knots, so there is no threshold-sampling gap.
+For two states and any full-support prior, A dominates B exactly when its posterior distribution is larger in convex order. The upper-hinge call value is C(t)=E[max(posterior-t,0)]. Channel comparison checks all supported posterior knots plus 0 and 1. Their difference is affine between knots, so there is no threshold-sampling gap.
 
 - A passing direction constructs K>=0 with each row summing to 1 and A K=B for both states. Exact bounded-polytope basis enumeration returns one feasible vertex, not every kernel.
 - A failed direction supplies a knot t with C_B(t)>C_A(t), and payoffs (0,0) versus (-t,1-t). The returned strict value gap is a separating decision problem, not a failed numerical search.
